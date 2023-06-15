@@ -5,6 +5,8 @@
  */
 package proyectoso2;
 
+import form.Form;
+
 /**
  *
  * @author paola
@@ -16,7 +18,8 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("Proyecto vacio");
+        Form form = new Form();
+        form.setVisible(true);
     }
     
 }
