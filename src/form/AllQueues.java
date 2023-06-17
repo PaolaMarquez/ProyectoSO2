@@ -11,7 +11,7 @@ import javax.swing.JPanel;
  *
  * @author paola
  */
-public class AllQueues extends javax.swing.JPanel {
+public final class AllQueues extends javax.swing.JPanel {
     
     private final JPanel[] panels;
     /**
@@ -20,6 +20,7 @@ public class AllQueues extends javax.swing.JPanel {
     public AllQueues() {
         initComponents();
         panels = new JPanel [4];
+        initializePanels();
         
     }
 
@@ -28,6 +29,10 @@ public class AllQueues extends javax.swing.JPanel {
         this.panels[1] = this.Level2;
         this.panels[2] = this.Level3;
         this.panels[3] = this.LevelR;
+    }
+    
+    public void initializeQueue(){
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,6 +49,7 @@ public class AllQueues extends javax.swing.JPanel {
         Level2 = new javax.swing.JPanel();
         Level1 = new javax.swing.JPanel();
 
+        jPanel1.setOpaque(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout LevelRLayout = new javax.swing.GroupLayout(LevelR);

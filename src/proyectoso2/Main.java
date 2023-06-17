@@ -6,6 +6,7 @@
 package proyectoso2;
 
 import form.Form;
+import java.util.concurrent.Semaphore;
 
 /**
  *
@@ -13,6 +14,8 @@ import form.Form;
  */
 public class Main {
 
+    public static Semaphore mutex = new Semaphore(1);
+    public static Administrator admin = new Administrator();
     /**
      * @param args the command line arguments
      */

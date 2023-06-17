@@ -13,7 +13,7 @@ import javax.swing.JPanel;
  *
  * @author paola
  */
-public class Form extends javax.swing.JFrame {
+public final class Form extends javax.swing.JFrame {
 
     private final AllQueues queuesLG;
     private final AllQueues queuesBG;
@@ -54,17 +54,14 @@ public class Form extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jSlider1 = new javax.swing.JSlider();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        BGInfo = new javax.swing.JTextArea();
         IAState = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        LGInfo = new javax.swing.JTextArea();
         queuesPanelBG = new javax.swing.JPanel();
         queuesPanelLG = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -95,12 +92,6 @@ public class Form extends javax.swing.JFrame {
         jSlider1.setMaximum(20);
         jPanel1.add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, -1, -1));
 
-        BGInfo.setColumns(20);
-        BGInfo.setRows(5);
-        jScrollPane1.setViewportView(BGInfo);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 170, 190));
-
         IAState.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         IAState.setText("Working");
         jPanel1.add(IAState, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, -1, -1));
@@ -110,16 +101,12 @@ public class Form extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, -1, -1));
 
         jLabel4.setText("0");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 480, 30, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 470, 30, -1));
 
         jLabel6.setText("20");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, 20, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 470, 20, -1));
 
-        LGInfo.setColumns(20);
-        LGInfo.setRows(5);
-        jScrollPane2.setViewportView(LGInfo);
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 170, 190));
+        queuesPanelBG.setOpaque(false);
 
         javax.swing.GroupLayout queuesPanelBGLayout = new javax.swing.GroupLayout(queuesPanelBG);
         queuesPanelBG.setLayout(queuesPanelBGLayout);
@@ -133,6 +120,8 @@ public class Form extends javax.swing.JFrame {
         );
 
         jPanel1.add(queuesPanelBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, -1, -1));
+
+        queuesPanelLG.setOpaque(false);
 
         javax.swing.GroupLayout queuesPanelLGLayout = new javax.swing.GroupLayout(queuesPanelLG);
         queuesPanelLG.setLayout(queuesPanelLGLayout);
@@ -154,6 +143,19 @@ public class Form extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 430, -1, -1));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 380, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 380, 250));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assest/Background.png"))); // NOI18N
         jPanel1.add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -30, -1, -1));
@@ -213,11 +215,9 @@ public class Form extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea BGInfo;
     private javax.swing.JLabel BGPoints;
     private javax.swing.JLabel Background;
     private javax.swing.JLabel IAState;
-    private javax.swing.JTextArea LGInfo;
     private javax.swing.JLabel LGPoints;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -227,8 +227,7 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JPanel queuesPanelBG;
     private javax.swing.JPanel queuesPanelLG;

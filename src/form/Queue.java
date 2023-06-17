@@ -29,6 +29,8 @@ public class Queue extends javax.swing.JPanel {
 
         jTextField1 = new javax.swing.JTextField();
 
+        setOpaque(false);
+
         jTextField1.setText("jTextField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
