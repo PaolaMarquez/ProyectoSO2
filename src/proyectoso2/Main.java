@@ -5,12 +5,17 @@
  */
 package proyectoso2;
 
+import java.util.concurrent.Semaphore;
+
 /**
  *
  * @author paola
  */
 public class Main {
 
+    
+    public static Semaphore mutex = new Semaphore(1);
+    public static Administrator operativeSistems = new Administrator();
     /**
      * @param args the command line arguments
      */
