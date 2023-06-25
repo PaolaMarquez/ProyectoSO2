@@ -53,14 +53,13 @@ public final class Form extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jSlider1 = new javax.swing.JSlider();
+        TimeSlider = new javax.swing.JSlider();
         IAState = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         queuesPanelBG = new javax.swing.JPanel();
         queuesPanelLG = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         Background = new javax.swing.JLabel();
 
@@ -89,8 +88,13 @@ public final class Form extends javax.swing.JFrame {
         jLabel3.setText("VS");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, -1, -1));
 
-        jSlider1.setMaximum(20);
-        jPanel1.add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, -1, -1));
+        TimeSlider.setMaximum(30);
+        TimeSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                TimeSliderStateChanged(evt);
+            }
+        });
+        jPanel1.add(TimeSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, -1, -1));
 
         IAState.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         IAState.setText("Working");
@@ -103,7 +107,7 @@ public final class Form extends javax.swing.JFrame {
         jLabel4.setText("0");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 470, 30, -1));
 
-        jLabel6.setText("20");
+        jLabel6.setText("30");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 470, 20, -1));
 
         queuesPanelBG.setOpaque(false);
@@ -136,14 +140,6 @@ public final class Form extends javax.swing.JFrame {
 
         jPanel1.add(queuesPanelLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 230, 200));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 430, -1, -1));
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -174,12 +170,13 @@ public final class Form extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void TimeSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_TimeSliderStateChanged
         // TODO add your handling code here:
-        IAState.setText(String.valueOf(jSlider1.getValue()));
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    /**
+        IAState.setText(String.valueOf(TimeSlider.getValue()));
+    }//GEN-LAST:event_TimeSliderStateChanged
+    
+     
+   /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -219,7 +216,7 @@ public final class Form extends javax.swing.JFrame {
     private javax.swing.JLabel Background;
     private javax.swing.JLabel IAState;
     private javax.swing.JLabel LGPoints;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JSlider TimeSlider;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -228,7 +225,6 @@ public final class Form extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JSlider jSlider1;
     private javax.swing.JPanel queuesPanelBG;
     private javax.swing.JPanel queuesPanelLG;
     // End of variables declaration//GEN-END:variables

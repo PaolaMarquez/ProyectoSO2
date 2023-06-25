@@ -16,6 +16,7 @@ public class Main {
 
     public static Semaphore mutex = new Semaphore(1);
     public static Administrator admin = new Administrator();
+    public static Vehicle[] vehicles = new Vehicle[10];
     /**
      * @param args the command line arguments
      */
@@ -23,6 +24,14 @@ public class Main {
         // TODO code application logic here
         Form form = new Form();
         form.setVisible(true);
+        for (int i = 0; i < 10; i++) {
+            Main.vehicles[i] = new Vehicle(String.valueOf(i),Values.partsLG,"a");
+            System.out.println();
+            System.out.println(Main.vehicles[i].level);
+            System.out.println(Main.vehicles[i].points);
+            System.out.println();
+        }
+        
     }
     
 }

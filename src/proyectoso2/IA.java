@@ -35,7 +35,8 @@ public class IA extends Thread{
     @Override
     public void run(){
         try {
-            sleep(1000);
+            sleep(10000);
+            chooseResults(0,0);
         } catch (InterruptedException ex) {
             
         }
