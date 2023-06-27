@@ -24,4 +24,16 @@ public class Vehicle {
     public int getCounter(){
         return 12;
     }
+    
+    public void setCounter(int i){
+    
+    }
+    
+    public String getStudioInitials(){
+        return "";
+    }
+    
+    public void increasePriority(){
+        setPriorityLevel(getPriorityLevel()-1);
+    }
 }

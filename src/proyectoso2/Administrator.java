@@ -20,6 +20,7 @@ public class Administrator extends Thread{
     public ArtificialIntelligence ia;
     public int bgIndex;
     public int lgIndex;
+    public int counter;
     
     public Queue queueBG1;
     public Queue queueBG2;
@@ -165,7 +166,109 @@ public class Administrator extends Thread{
     }
     
     
-   
+    
+    private void increaseCounterAndCheckPiority(Queue queue) {
+      
+        int lenQueue = queue.getLength();
+        int index = 0;
+        
+        while (index < lenQueue) {
+            // add 1 to the counter
+           
+            Vehicle vehicle = queue.dispatch();
+            
+            
+            vehicle.setCounter(vehicle.getCounter() + 1);
+
+            // if the counter is greater equal to 8 then move up priority
+            if (vehicle.getCounter() >= 8) {
+//                PCB pcb = chapter.getPcb();
+                // if priority is greater than 1
+                if (vehicle.getPriorityLevel() > 1) {
+                    vehicle.increasePriority();
+                    if (vehicle.getStudioInitials().equals("BG")) {
+                        this.sendVehicleToQueue(vehicle, this.queueBG1, this.queueBG2, this.queueBG3);
+                    }
+                    else {
+                        this.sendVehicleToQueue(vehicle, this.queueLG1, this.queueLG2, this.queueLG3);
+                    }                    
+                } else {
+                    queue.enqueue(vehicle);
+                }
+                vehicle.setCounter(1);
+            } else {
+                queue.enqueue(vehicle);
+            }
+//             pointer = pointer.getNext();
+            index++;
+        }
+        
+    }
+    
+    
+    
+    @Override
+    public void run(){
+        try {
+//            while (this.emulatorRunning) {
+           
+            
+//            this.mutex.acquire();
+            // try to return booster chapter
+            this.tryTakeBoosterVehicle(this.queueReinforcementBG, this.queueBG1, this.queueBG2, this.queueBG3);
+            this.tryTakeBoosterVehicle(this.queueReinforcementLG, this.queueLG1, this.queueLG2, this.queueLG3);
+
+            if (this.counter >= 2) {
+                // try add new chapter
+                this.tryAddVehicle("BG");
+                this.tryAddVehicle("LG");
+                // reset administrator's counter
+                this.setCounter(0);
+            }
+
+            // get chapters
+            Vehicle vehicleBG = this.getVehicleFromQueues(this.queueBG1, this.queueBG2, this.queueBG3);
+            Vehicle vehicleLG = this.getVehicleFromQueues(this.queueLG1, this.queueLG2, this.queueLG3);
+
+            // set chapters to IA
+            ia.setChapterBG(vehicleBG);
+            ia.setChapterLG(vehicleLG);
+
+            // reset selected chapter's counter
+            if (vehicleBG != null) {
+                vehicleBG.setCounter(0);
+            }
+            if (vehicleLG != null) {
+                vehicleLG.setCounter(0);
+            }
+            this.mutex.release();
+            Thread.sleep(500);
+            this.mutex.acquire();
+
+            // add one to chapter counters and check if privilege rises
+            this.increaseCounterAndCheckPiority(this.queueBG2);
+            this.increaseCounterAndCheckPiority(this.queueBG3);
+            this.increaseCounterAndCheckPiority(this.queueLG2);
+            this.increaseCounterAndCheckPiority(this.queueLG3);
+
+         
+
+            // add one to administrator's counter
+            this.setCounter(this.counter + 1);
+//            this.mutex.release();
+//        }
+           
+//            Thread.sleep(100);
+            
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+   }
+    
+    
+    public void setCounter(int value){
+        this.counter = value;
+    }
 }
         
 
