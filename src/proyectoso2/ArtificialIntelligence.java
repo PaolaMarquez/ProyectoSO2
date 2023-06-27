@@ -9,19 +9,10 @@ package proyectoso2;
  *
  * @author Abril
  */
-public class Vehicle {
+public class ArtificialIntelligence {
     
     
-    
-    public int getPriorityLevel(){
-        return 12;
-    }
-    
-    public void setPriorityLevel(int i){
-    
-    }
-    
-    public int getCounter(){
-        return 12;
-    }
+    public void start(){
+        
+    };
 }

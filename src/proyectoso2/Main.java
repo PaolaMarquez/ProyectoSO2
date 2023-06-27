@@ -15,13 +15,16 @@ public class Main {
 
     
     public static Semaphore mutex = new Semaphore(1);
-    public static Administrator operativeSistems = new Administrator();
+    public static Administrator operativeSystems = new Administrator();
+    public static ArtificialIntelligence ia = new ArtificialIntelligence();
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Proyecto vacio");
+        operativeSystems.incializateSO();
     }
     
 }
