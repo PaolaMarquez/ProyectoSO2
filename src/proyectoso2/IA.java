@@ -23,6 +23,8 @@ public class IA extends Thread{
     public Semaphore mutex;
     public Random random;
     public Administrator admin;
+    public Vehicle vehicleBG;
+    public Vehicle vehicleLG;
 
     public IA() {
         this.state = "Working";
@@ -35,7 +37,7 @@ public class IA extends Thread{
     @Override
     public void run(){
         try {
-            sleep(10000);
+            sleep(10000); // Poner a dormir por 10 seg
             chooseResults(0,0);
         } catch (InterruptedException ex) {
             
@@ -57,7 +59,7 @@ public class IA extends Thread{
         if (result <= Values.resultProb[0]){
 //        Existe un ganador
             if (pointsLG <= pointsBG){
-                System.out.println("Lamborghini ganó :)");
+                System.out.println("Lamborghini ganó :) (pajua)");
 //                admin.saveWinner()
 //                admin.deleteLoser()
             }else{
@@ -73,4 +75,22 @@ public class IA extends Thread{
 //            admin.queueR()
         }
     }
+
+    public Vehicle getVehicleBG() {
+        return vehicleBG;
+    }
+
+    public void setVehicleBG(Vehicle vehicleBG) {
+        this.vehicleBG = vehicleBG;
+    }
+
+    public Vehicle getVehicleLG() {
+        return vehicleLG;
+    }
+
+    public void setVehicleLG(Vehicle vehicleLG) {
+        this.vehicleLG = vehicleLG;
+    }
+    
+    
 }

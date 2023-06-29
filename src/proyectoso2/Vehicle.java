@@ -57,9 +57,9 @@ public class Vehicle {
     }
     
     public int assignScore(int probability, int amount){
-        int num = random.nextInt(100);
         int result = 0;
         for (int i = 0; i < amount; i++) {
+           int num = random.nextInt(100);
            if (num <= probability){
                result += 10;
            }
@@ -81,17 +81,8 @@ public class Vehicle {
         this.priorityLevel = priorityLevel;
     }
 
-    public int getCounter() {
-        return counter;
-    }
-
-    public void setCounter(int counter) {
-        this.counter = counter;
-    }    
+   
     
-    public void increasePriority(){
-        setPriorityLevel(getPriorityLevel()-1);
-    }
 
     public String getPlant() {
         return plant;
