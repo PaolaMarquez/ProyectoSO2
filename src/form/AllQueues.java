@@ -98,7 +98,7 @@ public final class AllQueues extends javax.swing.JPanel {
             .addGap(0, 60, Short.MAX_VALUE)
         );
 
-        jPanel1.add(LevelR, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 270, 60));
+        jPanel1.add(LevelR, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 270, 60));
 
         javax.swing.GroupLayout Level3Layout = new javax.swing.GroupLayout(Level3);
         Level3.setLayout(Level3Layout);
@@ -111,7 +111,7 @@ public final class AllQueues extends javax.swing.JPanel {
             .addGap(0, 60, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Level3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 270, 60));
+        jPanel1.add(Level3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 270, 60));
 
         Level1.setPreferredSize(new java.awt.Dimension(270, 60));
 

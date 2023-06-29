@@ -14,8 +14,9 @@ public class Values {
 //        carrocería, chasis, motor, ruedas
     public static int[] partsLG = {1,2,6,5};
     public static int[] partsBG = {2,1,4,4};
+    public static String[] statusIA = {"Working", "Deciding...", "Announcing results"};
     
-    public static String[] LGVehiclename = new String[] {
+    public static String[] LGVehicleName = new String[] {
         "Aventador","Huracán", "Gallardo", "Diablo", 
         "Countach", "Miura","Murciélago", "Sesto Elemento" , "Veneno", "Centenario", 
         "Reventón", "Jarama", "Espada", "Urraco", "Silhouette"

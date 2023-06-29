@@ -30,7 +30,7 @@ public class IA extends Thread{
     public int pointsBG;
 
     public IA() {
-        this.state = "Working";
+        this.state = Values.statusIA[0];
         this.winners = new Vehicle[100];
         this.mutex = Main.mutex;
         this.admin = Main.admin;
@@ -39,28 +39,45 @@ public class IA extends Thread{
         this.pointsBG = 0;
     }
     
+    public void changeState(int i){
+        this.state = Values.statusIA[i];
+        Main.form.getIAState().setText(this.state);
+    }
+    
     @Override
     public void run(){
-        try { 
+        
+        try {
+            sleep(1000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        while (true){
+            try { 
            this.mutex.acquire();
+           changeState(0);
             if (this.vehicleBG == null || this.vehicleLG == null) {
                 this.admin.sendVehiclesToQueue(this.vehicleBG, this.vehicleLG);
 //                sleep(this.runTime);
                 sleep(5000);
             } else {
-                sleep(runTime); // Poner a dormir por 10 seg
+                changeState(1);
+//                sleep(runTime); // Poner a dormir por 10 seg
                 sleep(5000);
                 chooseResults(vehicleLG.points,vehicleBG.points);
             this.mutex.release();
-            sleep(100);
+            sleep(1000);
             }
         }catch (InterruptedException ex) {      
             Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
     }
         
     public void chooseResults(int pointsLG, int pointsBG){
         int result = random.nextInt(100);
+        changeState(2);
         if (result <= Values.resultProb[0]){
 //        Existe un ganador
             if (pointsLG >= pointsBG){

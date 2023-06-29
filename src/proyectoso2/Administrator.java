@@ -194,6 +194,12 @@ public class Administrator extends Thread{
     @Override
     public void run(){
         try {
+            sleep(1000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        while (true){
+            try {
 
             this.tryTakeReinforcementVehicle(this.queueReinforcementBG, this.queueBG1, this.queueBG2, this.queueBG3, "BG");
             this.tryTakeReinforcementVehicle(this.queueReinforcementLG, this.queueLG1, this.queueLG2, this.queueLG3, "LG");
@@ -229,6 +235,7 @@ public class Administrator extends Thread{
 
         } catch (InterruptedException ex) {
             Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
    }
     
