@@ -50,8 +50,8 @@ public final class Form extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        LGPoints = new javax.swing.JLabel();
-        BGPoints = new javax.swing.JLabel();
+        LGWins = new javax.swing.JLabel();
+        BGWins = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -71,13 +71,13 @@ public final class Form extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(899, 504));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        LGPoints.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        LGPoints.setText("0");
-        jPanel1.add(LGPoints, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 70, -1));
+        LGWins.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        LGWins.setText("0");
+        jPanel1.add(LGWins, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 70, -1));
 
-        BGPoints.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        BGPoints.setText("0");
-        jPanel1.add(BGPoints, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 90, 70, -1));
+        BGWins.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        BGWins.setText("0");
+        jPanel1.add(BGWins, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 90, 70, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Bugatti");
@@ -233,10 +233,19 @@ public final class Form extends javax.swing.JFrame {
         this.IAState = IAState;
     }
 
+    public JLabel getBGWins() {
+        return BGWins;
+    }
+
+    public JLabel getLGWins() {
+        return LGWins;
+    }
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BGPoints;
+    private javax.swing.JLabel BGWins;
     private javax.swing.JLabel IAState;
-    private javax.swing.JLabel LGPoints;
+    private javax.swing.JLabel LGWins;
     private javax.swing.JSlider TimeSlider;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -52,7 +52,6 @@ public class Administrator extends Thread{
         if (plant.equals("BG")) {
             this.idBG += 1;
             Vehicle newVehicle = new Vehicle(this.idBG, plant);
-//            System.out.println();
             this.sendVehicleToQueue(newVehicle, this.queueBG1, this.queueBG2, this.queueBG3);
         }else{
             this.idLG += 1;
@@ -92,23 +91,21 @@ public class Administrator extends Thread{
         if (vehicleLG != null) {
             this.queueReinforcementLG.enqueue(vehicleLG);
             changeForm(this.queueReinforcementLG, "LG", 3);
-
         }
     }
     
     private void tryTakeReinforcementVehicle(Queue reinforcement, Queue queue1, Queue queue2, Queue queue3, String label) {
-        if (reinforcement.isEmpty()) {
-            return;
-        }
-        int result = ramdom.nextInt(100);
-        if (result <= 40) {
-            Vehicle vehicle = reinforcement.dispatch();
-            vehicle.priorityLevel = 1;
-            this.sendVehicleToQueue(vehicle, queue1, queue2, queue3);
-        } else {
-            Vehicle vehicle = reinforcement.dispatch();
-            reinforcement.enqueue(vehicle);
-            changeForm(reinforcement, label, 3);
+        if (!reinforcement.isEmpty()){
+            int result = ramdom.nextInt(100);
+            if (result <= 40) {
+                Vehicle vehicle = reinforcement.dispatch();
+                vehicle.priorityLevel = 1;
+                this.sendVehicleToQueue(vehicle, queue1, queue2, queue3);
+            } else {
+                Vehicle vehicle = reinforcement.dispatch();
+                reinforcement.enqueue(vehicle);
+                changeForm(reinforcement, label, 3);
+            }
         }
     }
     
@@ -156,7 +153,6 @@ public class Administrator extends Thread{
         while (index < lenQueue) {
             Vehicle vehicle = queue.dispatch();
             vehicle.counter++;
-
             // Si la cantidad es mayor a 8
             if (vehicle.counter >= 8) {
              //Si la prioridad es mayor a uno
@@ -188,7 +184,6 @@ public class Administrator extends Thread{
             }
             index++;
         }
-        
     }
     
     @Override
@@ -223,7 +218,7 @@ public class Administrator extends Thread{
             }
 
             this.mutex.release();
-            Thread.sleep(500);
+            sleep(500);
             this.mutex.acquire();
 
             // Despues de la ronda de la inteligencia artificial se aumenta y se chequea

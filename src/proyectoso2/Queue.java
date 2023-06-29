@@ -89,7 +89,7 @@ public class Queue {
     
     public String returnElements(){
         String msg = "";
-        Node pointer = getLast();
+        Node pointer = getFirst();
         while (pointer != null) {
             String info = pointer.getElement().id + pointer.getElement().plant +" ";
             msg += info;
