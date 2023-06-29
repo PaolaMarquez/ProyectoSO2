@@ -88,7 +88,7 @@ public class Administrator extends Thread{
     }
     
     
-    public void sendVehicleToBoosterQueue(Vehicle vehicleBG, Vehicle vehicleLG) {
+    public void sendVehicleToReinforcementQueue(Vehicle vehicleBG, Vehicle vehicleLG) {
         if (vehicleBG != null) {
             this.queueReinforcementBG.enqueue(vehicleBG);
         }
@@ -212,8 +212,8 @@ public class Administrator extends Thread{
             Vehicle vehicleLG = this.getVehicleFromQueues(this.queueLG1, this.queueLG2, this.queueLG3);
 
             
-            ia.setVehicleLG(vehicleBG);
-            ia.setVehicleBG(vehicleLG);
+            ia.vehicleLG = vehicleBG;
+            ia.vehicleBG =  vehicleLG;
 
             if (vehicleBG != null) {
                 vehicleBG.counter = 0;

@@ -19,7 +19,6 @@ public class Vehicle {
     public String name;
     public int counter;
     public Random random;
-    public int level;
     public int priorityLevel;
     public String plant;
 
@@ -30,7 +29,7 @@ public class Vehicle {
         this.counter = 0;
         this.random = new Random();
         this.points = 0;
-        this.level = 0;
+        this.priorityLevel = 0;
         this.plant = plant;
         checkQuality();
     }
@@ -46,13 +45,13 @@ public class Vehicle {
         this.points += assignScore(40, components[3]);
         if (this.points>=110){
 //            calidad excepcional
-            this.level = 1;
+            this.priorityLevel = 1;
         }else if (this.points>30){
 //            calidad media
-            this.level = 2;
+            this.priorityLevel = 2;
         }else{
 //            calidad baja
-            this.level =3;
+            this.priorityLevel =3;
         }
     }
     
@@ -68,25 +67,16 @@ public class Vehicle {
     }
     
     public void checkLevel(){
-        if (this.counter == 8 && this.level !=1 && this.level != 4){
-            this.level --;
+        if (this.counter == 8 && this.priorityLevel !=1 && this.priorityLevel != 4){
+            this.priorityLevel --;
         }
     }
 
-    public int getPriorityLevel() {
-        return priorityLevel;
-    }
-
-    public void setPriorityLevel(int priorityLevel) {
-        this.priorityLevel = priorityLevel;
-    }
+   
 
    
     
 
-    public String getPlant() {
-        return plant;
-    }
       
     
 }

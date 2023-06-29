@@ -25,6 +25,7 @@ public class IA extends Thread{
     public Administrator admin;
     public Vehicle vehicleBG;
     public Vehicle vehicleLG;
+    public int runTime;
 
     public IA() {
         this.state = "Working";
@@ -36,21 +37,32 @@ public class IA extends Thread{
     
     @Override
     public void run(){
-        try {
-            sleep(10000); // Poner a dormir por 10 seg
-            chooseResults(0,0);
-        } catch (InterruptedException ex) {
-            
-        }
-        
-        while (true){
-            
+        try { 
+           this.mutex.acquire();
+ 
+            if (this.vehicleBG == null || this.vehicleLG == null) {
+                this.admin.sendVehiclesToQueue(this.vehicleBG, this.vehicleLG);
+                sleep(this.runTime);
+
+            } else {
+                sleep(runTime); // Poner a dormir por 10 seg
+                chooseResults(0,0);
+
+            this.mutex.release();
+
+            sleep(100);
+            }
+        }catch (InterruptedException ex) {      
+            Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void checkVehicles(){
         
-    }
+                
+        
+        
+//    public void checkVehicles(){
+//        
+//    }
     
     
     
@@ -59,38 +71,20 @@ public class IA extends Thread{
         if (result <= Values.resultProb[0]){
 //        Existe un ganador
             if (pointsLG <= pointsBG){
-                System.out.println("Lamborghini ganó :) (pajua)");
-//                admin.saveWinner()
-//                admin.deleteLoser()
+                System.out.println("Lamborghini ganó");
             }else{
-                System.out.println("Bugatti ganó :(");
-//                
+                System.out.println("Bugatti ganó ");
+                
             }
             
         }else if (result <= Values.resultProb[1] + Values.resultProb[0]){
 //        Ocurre un empate
-//            admin.appendAtTheEnd()
+            this.admin.sendVehiclesToQueue(vehicleBG, vehicleLG);
         }else {
 //        No se lleva a cabo la carrera
-//            admin.queueR()
+            this.admin.sendVehicleToReinforcementQueue(vehicleBG, vehicleLG);
         }
     }
 
-    public Vehicle getVehicleBG() {
-        return vehicleBG;
-    }
-
-    public void setVehicleBG(Vehicle vehicleBG) {
-        this.vehicleBG = vehicleBG;
-    }
-
-    public Vehicle getVehicleLG() {
-        return vehicleLG;
-    }
-
-    public void setVehicleLG(Vehicle vehicleLG) {
-        this.vehicleLG = vehicleLG;
-    }
-    
-    
+   
 }

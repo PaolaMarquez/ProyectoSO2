@@ -30,7 +30,7 @@ public class Main {
         for (int i = 0; i < 10; i++) {
 //            Main.vehicles[i] = new Vehicle(String.valueOf(i),Values.partsLG,"a");
             System.out.println();
-            System.out.println(Main.vehicles[i].level);
+            System.out.println(Main.vehicles[i].priorityLevel);
             System.out.println(Main.vehicles[i].points);
             System.out.println();
         }
