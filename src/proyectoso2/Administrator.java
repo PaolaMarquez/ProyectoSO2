@@ -215,7 +215,6 @@ public class Administrator extends Thread{
             ia.setVehicleLG(vehicleBG);
             ia.setVehicleBG(vehicleLG);
 
-            // reset selected chapter's counter
             if (vehicleBG != null) {
                 vehicleBG.counter = 0;
             }
