@@ -87,12 +87,18 @@ public class Queue {
         return getFirst() == null;
     }
     
-    public void printElements(){
+    public String returnElements(){
+        String msg = "";
         Node pointer = getLast();
         while (pointer != null) {
-            System.out.println(pointer.getElement());
+            String info = pointer.getElement().id + pointer.getElement().plant +" ";
+            msg += info;
+//            System.out.println(pointer.getElement());
+//            System.out.println(info);
             pointer = pointer.getNext();
         }
+        System.out.println(msg);
+        return msg;
     }
     
    

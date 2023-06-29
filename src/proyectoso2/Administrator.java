@@ -27,7 +27,6 @@ public class Administrator extends Thread{
     public Queue queueBG3;
     public Queue queueReinforcementBG;
     
-    
     public Queue queueLG1;
     public Queue queueLG2;
     public Queue queueLG3;
@@ -49,30 +48,28 @@ public class Administrator extends Thread{
         this.idLG = 0;
     }
       
-    
-    
-    
     private void addVehicle(String plant) {
         if (plant.equals("BG")) {
             this.idBG += 1;
             Vehicle newVehicle = new Vehicle(this.idBG, plant);
+//            System.out.println();
             this.sendVehicleToQueue(newVehicle, this.queueBG1, this.queueBG2, this.queueBG3);
-            
         }else{
             this.idLG += 1;
             Vehicle newVehicle = new Vehicle(this.idLG, plant);
             this.sendVehicleToQueue(newVehicle, this.queueLG1, this.queueLG2, this.queueLG3);
         }
-
     }
     
-    
-    private Vehicle getVehicleFromQueues(Queue queue1, Queue queue2, Queue queue3) {
+    private Vehicle getVehicleFromQueues(Queue queue1, Queue queue2, Queue queue3, String label) {
         if (!queue1.isEmpty()) {
+            changeForm(queue1, label, 0);
             return queue1.dispatch();
         } else if (!queue2.isEmpty()) {
+            changeForm(queue2, label, 1);            
             return queue2.dispatch();
         } else if (!queue3.isEmpty()) {
+            changeForm(queue3, label, 2);
             return queue3.dispatch();
         }
         return null;
@@ -87,20 +84,19 @@ public class Administrator extends Thread{
         }
     }
     
-    
     public void sendVehicleToReinforcementQueue(Vehicle vehicleBG, Vehicle vehicleLG) {
         if (vehicleBG != null) {
             this.queueReinforcementBG.enqueue(vehicleBG);
+            changeForm(this.queueReinforcementBG, "BG", 3);
         }
         if (vehicleLG != null) {
             this.queueReinforcementLG.enqueue(vehicleLG);
+            changeForm(this.queueReinforcementLG, "LG", 3);
+
         }
     }
     
-    
-    
-    
-    private void tryTakeReinforcementVehicle(Queue reinforcement, Queue queue1, Queue queue2, Queue queue3) {
+    private void tryTakeReinforcementVehicle(Queue reinforcement, Queue queue1, Queue queue2, Queue queue3, String label) {
         if (reinforcement.isEmpty()) {
             return;
         }
@@ -112,20 +108,23 @@ public class Administrator extends Thread{
         } else {
             Vehicle vehicle = reinforcement.dispatch();
             reinforcement.enqueue(vehicle);
+            changeForm(reinforcement, label, 3);
         }
     }
     
     private void sendVehicleToQueue(Vehicle vehicle, Queue queue1, Queue queue2, Queue queue3) {
         int priority = vehicle.priorityLevel;
-
         if (priority == 1) {
             queue1.enqueue(vehicle);
+            changeForm(queue1, vehicle.plant, 0);
         }
         if (priority == 2) {
             queue2.enqueue(vehicle);
+            changeForm(queue2, vehicle.plant, 1);
         }
         if (priority == 3) {
             queue3.enqueue(vehicle);
+            changeForm(queue3, vehicle.plant, 2);
         }
     }
     
@@ -142,7 +141,6 @@ public class Administrator extends Thread{
             this.addVehicle("BG");
         }
         this.ia = Main.ia;
-
         try {
             this.mutex.acquire();
         } catch (InterruptedException ex) {
@@ -152,66 +150,62 @@ public class Administrator extends Thread{
         ia.start();
     }
     
-    
-    
     private void increaseCounterAndCheckPiority(Queue queue) {
-      
         int lenQueue = queue.getLength();
         int index = 0;
-        
         while (index < lenQueue) {
-          
-           
             Vehicle vehicle = queue.dispatch();
-            
             vehicle.counter++;
 
             // Si la cantidad es mayor a 8
             if (vehicle.counter >= 8) {
-
              //Si la prioridad es mayor a uno
                 if (vehicle.priorityLevel > 1) {
+                    int aux = vehicle.priorityLevel;
                     vehicle.priorityLevel--;
                     if (vehicle.plant.equals("BG")) {
                         this.sendVehicleToQueue(vehicle, this.queueBG1, this.queueBG2, this.queueBG3);
+                        if (aux == 2){
+                            changeForm(this.queueBG2, "BG", aux-1);
+                        }else{
+                            changeForm(this.queueBG3, "BG", aux-1);
+                        }
                     }
                     else {
                         this.sendVehicleToQueue(vehicle, this.queueLG1, this.queueLG2, this.queueLG3);
+                        if (aux == 2){
+                            changeForm(this.queueLG2, "LG", aux-1);
+                        }else{
+                            changeForm(this.queueLG3, "LG", aux-1);
+                        }
                     }    
                 } else {
                     queue.enqueue(vehicle);
                 }
-                
                 vehicle.counter = 1;  
             } else {
                 queue.enqueue(vehicle);
             }
-
             index++;
         }
         
     }
     
-    
-    
     @Override
     public void run(){
         try {
 
-            this.tryTakeReinforcementVehicle(this.queueReinforcementBG, this.queueBG1, this.queueBG2, this.queueBG3);
-            this.tryTakeReinforcementVehicle(this.queueReinforcementLG, this.queueLG1, this.queueLG2, this.queueLG3);
+            this.tryTakeReinforcementVehicle(this.queueReinforcementBG, this.queueBG1, this.queueBG2, this.queueBG3, "BG");
+            this.tryTakeReinforcementVehicle(this.queueReinforcementLG, this.queueLG1, this.queueLG2, this.queueLG3, "LG");
 
             if (this.counter >= 2) {
                 this.tryAddVehicle("BG");
                 this.tryAddVehicle("LG");
                 this.counter = 0;
             }
+            Vehicle vehicleBG = this.getVehicleFromQueues(this.queueBG1, this.queueBG2, this.queueBG3, "BG");
+            Vehicle vehicleLG = this.getVehicleFromQueues(this.queueLG1, this.queueLG2, this.queueLG3, "LG");
 
- 
-            Vehicle vehicleBG = this.getVehicleFromQueues(this.queueBG1, this.queueBG2, this.queueBG3);
-            Vehicle vehicleLG = this.getVehicleFromQueues(this.queueLG1, this.queueLG2, this.queueLG3);
-
-            
             ia.vehicleLG = vehicleBG;
             ia.vehicleBG =  vehicleLG;
 
@@ -221,7 +215,7 @@ public class Administrator extends Thread{
             if (vehicleLG != null) {
                 vehicleLG.counter = 0;
             }
-            
+
             this.mutex.release();
             Thread.sleep(500);
             this.mutex.acquire();
@@ -231,15 +225,18 @@ public class Administrator extends Thread{
             this.increaseCounterAndCheckPiority(this.queueBG3);
             this.increaseCounterAndCheckPiority(this.queueLG2);
             this.increaseCounterAndCheckPiority(this.queueLG3);
-
             this.counter++;
-//      
+
         } catch (InterruptedException ex) {
             Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
         }
    }
     
-    
+    public void changeForm(Queue queue, String label, int index){
+        if (label.equals("LG")){
+            Main.form.getQueuesLG().getQueues()[index].getShowQueue().setText(queue.returnElements());
+        }else{
+            Main.form.getQueuesBG().getQueues()[index].getShowQueue().setText(queue.returnElements());
+        }
+    }
 }
-        
-

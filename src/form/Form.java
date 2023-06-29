@@ -219,6 +219,10 @@ public final class Form extends javax.swing.JFrame {
     public AllQueues getQueuesLG(){
         return queuesLG;
     }
+    
+    public AllQueues getQueuesBG(){
+        return queuesBG;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BGPoints;

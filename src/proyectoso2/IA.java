@@ -19,37 +19,39 @@ public class IA extends Thread{
     public String state;
     public Vehicle[] vehicles;
     public Vehicle thisWinner;
-    public int[] winners;
+    public Vehicle[] winners;
     public Semaphore mutex;
     public Random random;
     public Administrator admin;
     public Vehicle vehicleBG;
     public Vehicle vehicleLG;
     public int runTime;
+    public int pointsLG;
+    public int pointsBG;
 
     public IA() {
         this.state = "Working";
-        this.winners = new int[100];
+        this.winners = new Vehicle[100];
         this.mutex = Main.mutex;
         this.admin = Main.admin;
         this.random = new Random();
+        this.pointsLG = 0;
+        this.pointsBG = 0;
     }
     
     @Override
     public void run(){
         try { 
            this.mutex.acquire();
- 
             if (this.vehicleBG == null || this.vehicleLG == null) {
                 this.admin.sendVehiclesToQueue(this.vehicleBG, this.vehicleLG);
-                sleep(this.runTime);
-
+//                sleep(this.runTime);
+                sleep(5000);
             } else {
                 sleep(runTime); // Poner a dormir por 10 seg
-                chooseResults(0,0);
-
+                sleep(5000);
+                chooseResults(vehicleLG.points,vehicleBG.points);
             this.mutex.release();
-
             sleep(100);
             }
         }catch (InterruptedException ex) {      
@@ -57,26 +59,19 @@ public class IA extends Thread{
         }
     }
         
-                
-        
-        
-//    public void checkVehicles(){
-//        
-//    }
-    
-    
-    
     public void chooseResults(int pointsLG, int pointsBG){
         int result = random.nextInt(100);
         if (result <= Values.resultProb[0]){
 //        Existe un ganador
-            if (pointsLG <= pointsBG){
+            if (pointsLG >= pointsBG){
+                this.winners[this.pointsLG + this.pointsBG] = this.vehicleLG;
+                this.pointsLG++;
                 System.out.println("Lamborghini ganó");
             }else{
-                System.out.println("Bugatti ganó ");
-                
+                this.winners[this.pointsLG + this.pointsBG] = this.vehicleBG;
+                this.pointsBG++;
+                System.out.println("Bugatti ganó");
             }
-            
         }else if (result <= Values.resultProb[1] + Values.resultProb[0]){
 //        Ocurre un empate
             this.admin.sendVehiclesToQueue(vehicleBG, vehicleLG);
@@ -85,6 +80,4 @@ public class IA extends Thread{
             this.admin.sendVehicleToReinforcementQueue(this.vehicleBG, this.vehicleLG);
         }
     }
-
-   
 }
