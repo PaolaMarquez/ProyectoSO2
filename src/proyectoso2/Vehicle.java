@@ -21,6 +21,7 @@ public class Vehicle {
     public Random random;
     public int priorityLevel;
     public String plant;
+    public String quality;
 
     public Vehicle(int id, String plant) {
         this.id = id;
@@ -32,6 +33,7 @@ public class Vehicle {
         this.plant = plant;
         createComponents();
         checkQuality();
+        
     }
     public void createComponents(){
         if (this.plant.equals("LG")){
@@ -51,14 +53,16 @@ public class Vehicle {
 //        rueda
         this.points += assignScore(40, components[3]);
         if (this.points>=110){
-//            calidad excepcional
             this.priorityLevel = 1;
+            this.quality = "Excepcional";
         }else if (this.points>30){
-//            calidad media
             this.priorityLevel = 2;
+            this.quality = "Media";
+
         }else{
-//            calidad baja
             this.priorityLevel =3;
+            this.quality = "Baja";
+
         }
     }
     

@@ -77,7 +77,7 @@ public class IA extends Thread{
             this.admin.sendVehiclesToQueue(vehicleBG, vehicleLG);
         }else {
 //        No se lleva a cabo la carrera
-            this.admin.sendVehicleToReinforcementQueue(vehicleBG, vehicleLG);
+            this.admin.sendVehicleToReinforcementQueue(this.vehicleBG, this.vehicleLG);
         }
     }
 }
