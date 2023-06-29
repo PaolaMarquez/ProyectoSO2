@@ -6,6 +6,7 @@
 package form;
 
 import java.awt.BorderLayout;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -222,6 +223,14 @@ public final class Form extends javax.swing.JFrame {
     
     public AllQueues getQueuesBG(){
         return queuesBG;
+    }
+   
+    public JLabel getIAState() {
+        return IAState;
+    }
+
+    public void setIAState(JLabel IAState) {
+        this.IAState = IAState;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

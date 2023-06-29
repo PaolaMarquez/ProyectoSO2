@@ -34,13 +34,16 @@ public class Vehicle {
 
         createComponents();
         checkQuality();
-        
     }
+    
     public void createComponents(){
+        int num = random.nextInt(14);
         if (this.plant.equals("LG")){
             this.components = Values.partsLG;
+            this.name = Values.LGVehicleName[num];
         }else{
             this.components = Values.partsBG;
+            this.name = Values.BGVehicleName[num];
         }
     }
             
