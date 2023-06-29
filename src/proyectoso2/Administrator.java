@@ -17,9 +17,9 @@ import java.util.logging.Logger;
 public class Administrator extends Thread{
     public Semaphore mutex;
     public final Random ramdom = new Random();
-    public ArtificialIntelligence ia;
-    public int bgIndex;
-    public int lgIndex;
+    public IA ia;
+    public int idBG;
+    public int idLG;
     public int counter;
     
     public Queue queueBG1;
@@ -45,33 +45,22 @@ public class Administrator extends Thread{
         this.queueReinforcementLG = new Queue();
         
         this.mutex = Main.mutex;
-        this.bgIndex = 0;
-        this.lgIndex = 0;
+        this.idBG = 0;
+        this.idLG = 0;
     }
+      
     
     
     
-    public void startProgram(){
-        for (int i = 0; i < 10; i++) {
-//            this.addVehicle("LG");
-//            this.affVehicle("BG");
-        }
-        
-    }
-    
-    
-    
-    
-    private void addVehicle(String brand) {
-        if (brand.equals("BG")) {
-            this.bgIndex += 1;
+    private void addVehicle(String plant) {
+        if (plant.equals("BG")) {
+            this.idBG += 1;
             // create new chapter
-            Vehicle newVehicle = new Vehicle(this.bgIndex, brand);
-            // move chapter to its queue
+            Vehicle newVehicle = new Vehicle(this.idBG, plant);
             this.sendVehicleToQueue(newVehicle, this.queueBG1, this.queueBG2, this.queueBG3);
         }else{
-            this.lgIndex += 1;
-            Vehicle newVehicle = new Vehicle(this.lgIndex, brand);
+            this.idLG += 1;
+            Vehicle newVehicle = new Vehicle(this.idLG, plant);
             
             this.sendVehicleToQueue(newVehicle, this.queueLG1, this.queueLG2, this.queueLG3);
         }
@@ -142,14 +131,14 @@ public class Administrator extends Thread{
         }
     }
     
-    private void tryAddVehicle(String brand) {
+    private void tryAddVehicle(String plant) {
         int result = ramdom.nextInt(100);
         if (result <= 80) {
-            this.addVehicle(brand);
+            this.addVehicle(plant);
         }
     }
     
-    public void incializateSO(){
+    public void startProgram(){
         for (int i = 0; i < 10; i++) {
             this.addVehicle("LG");
             this.addVehicle("BG");
@@ -186,7 +175,7 @@ public class Administrator extends Thread{
                 // if priority is greater than 1
                 if (vehicle.getPriorityLevel() > 1) {
                     vehicle.increasePriority();
-                    if (vehicle.getStudioInitials().equals("BG")) {
+                    if (vehicle.getPlant().equals("BG")) {
                         this.sendVehicleToQueue(vehicle, this.queueBG1, this.queueBG2, this.queueBG3);
                     }
                     else {
@@ -231,8 +220,8 @@ public class Administrator extends Thread{
             Vehicle vehicleLG = this.getVehicleFromQueues(this.queueLG1, this.queueLG2, this.queueLG3);
 
             // set chapters to IA
-            ia.setChapterBG(vehicleBG);
-            ia.setChapterLG(vehicleLG);
+            ia.setVehicleLG(vehicleBG);
+            ia.setVehicleBG(vehicleLG);
 
             // reset selected chapter's counter
             if (vehicleBG != null) {

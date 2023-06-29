@@ -5,6 +5,7 @@
  */
 package proyectoso2;
 
+import form.Form;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -13,18 +14,26 @@ import java.util.concurrent.Semaphore;
  */
 public class Main {
 
-    
+
     public static Semaphore mutex = new Semaphore(1);
-    public static Administrator operativeSystems = new Administrator();
-    public static ArtificialIntelligence ia = new ArtificialIntelligence();
-    
+    public static Administrator admin = new Administrator();
+    public static IA ia = new IA();
+    public static Vehicle[] vehicles = new Vehicle[10];
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        System.out.println("Proyecto vacio");
-        operativeSystems.incializateSO();
+
+        admin.startProgram();
+        Form form = new Form();
+        form.setVisible(true);
+        for (int i = 0; i < 10; i++) {
+//            Main.vehicles[i] = new Vehicle(String.valueOf(i),Values.partsLG,"a");
+            System.out.println();
+            System.out.println(Main.vehicles[i].level);
+            System.out.println(Main.vehicles[i].points);
+            System.out.println();
+        }
     }
     
 }
