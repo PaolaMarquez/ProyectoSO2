@@ -28,9 +28,9 @@ public class Main {
         Form form = new Form();
         form.setVisible(true);
         for (int i = 0; i < 10; i++) {
-//            Main.vehicles[i] = new Vehicle(String.valueOf(i),Values.partsLG,"a");
+            Main.vehicles[i] = new Vehicle(i,"LG");
             System.out.println();
-            System.out.println(Main.vehicles[i].level);
+            System.out.println(Main.vehicles[i].priorityLevel);
             System.out.println(Main.vehicles[i].points);
             System.out.println();
         }
