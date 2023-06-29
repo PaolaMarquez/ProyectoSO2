@@ -25,18 +25,25 @@ public class Vehicle {
 
     public Vehicle(int id, String plant) {
         this.id = id;
-        this.components = components;
         this.name = "";
         this.counter = 0;
         this.random = new Random();
         this.points = 0;
         this.priorityLevel = 0;
         this.plant = plant;
-        
+
+        createComponents();
         checkQuality();
         
     }
-    
+    public void createComponents(){
+        if (this.plant.equals("LG")){
+            this.components = Values.partsLG;
+        }else{
+            this.components = Values.partsBG;
+        }
+    }
+            
     public void checkQuality(){
 //        carrocería
         this.points += assignScore(60, components[0]);
@@ -77,11 +84,4 @@ public class Vehicle {
         }
     }
 
-   
-
-   
-    
-
-      
-    
 }

@@ -5,6 +5,8 @@
  */
 package form;
 
+import javax.swing.JTextField;
+
 /**
  *
  * @author paola
@@ -27,11 +29,19 @@ public class Queue extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        showQueue = new javax.swing.JTextField();
 
         setOpaque(false);
+        setPreferredSize(new java.awt.Dimension(270, 60));
 
-        jTextField1.setText("jTextField1");
+        showQueue.setEditable(false);
+        showQueue.setEnabled(false);
+        showQueue.setPreferredSize(new java.awt.Dimension(270, 60));
+        showQueue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showQueueActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -39,20 +49,26 @@ public class Queue extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+                .addComponent(showQueue, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(showQueue, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void showQueueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showQueueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_showQueueActionPerformed
 
+    public JTextField getShowQueue(){
+        return showQueue;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField showQueue;
     // End of variables declaration//GEN-END:variables
 }

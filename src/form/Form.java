@@ -7,6 +7,7 @@ package form;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 
 /**
@@ -30,7 +31,7 @@ public final class Form extends javax.swing.JFrame {
     }
     
     public void createQueues(JPanel panel, AllQueues pq){
-        pq.setSize(230, 200);
+        pq.setSize(350, 380);
         pq.setLocation(0, 0);
         panel.removeAll();
         panel.add(pq, BorderLayout.CENTER);
@@ -58,10 +59,11 @@ public final class Form extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        queuesPanelBG = new javax.swing.JPanel();
-        queuesPanelLG = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        Background = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        queuesPanelLG = new javax.swing.JPanel();
+        queuesPanelBG = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,23 +72,23 @@ public final class Form extends javax.swing.JFrame {
 
         LGPoints.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         LGPoints.setText("0");
-        jPanel1.add(LGPoints, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 70, -1));
+        jPanel1.add(LGPoints, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 70, -1));
 
         BGPoints.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         BGPoints.setText("0");
-        jPanel1.add(BGPoints, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 60, 70, -1));
+        jPanel1.add(BGPoints, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 90, 70, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Bugatti");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 60, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 90, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Lamborghini");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("VS");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, -1, -1));
 
         TimeSlider.setMaximum(30);
         TimeSlider.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -94,77 +96,80 @@ public final class Form extends javax.swing.JFrame {
                 TimeSliderStateChanged(evt);
             }
         });
-        jPanel1.add(TimeSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, -1, -1));
+        jPanel1.add(TimeSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 560, -1, -1));
 
         IAState.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         IAState.setText("Working");
-        jPanel1.add(IAState, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, -1, -1));
+        jPanel1.add(IAState, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("The IA is ");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, -1, -1));
 
         jLabel4.setText("0");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 470, 30, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 590, 30, -1));
 
         jLabel6.setText("30");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 470, 20, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 590, 20, -1));
 
-        queuesPanelBG.setOpaque(false);
-
-        javax.swing.GroupLayout queuesPanelBGLayout = new javax.swing.GroupLayout(queuesPanelBG);
-        queuesPanelBG.setLayout(queuesPanelBGLayout);
-        queuesPanelBGLayout.setHorizontalGroup(
-            queuesPanelBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 230, Short.MAX_VALUE)
-        );
-        queuesPanelBGLayout.setVerticalGroup(
-            queuesPanelBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 201, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(queuesPanelBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, -1, -1));
-
-        queuesPanelLG.setOpaque(false);
-
-        javax.swing.GroupLayout queuesPanelLGLayout = new javax.swing.GroupLayout(queuesPanelLG);
-        queuesPanelLG.setLayout(queuesPanelLGLayout);
-        queuesPanelLGLayout.setHorizontalGroup(
-            queuesPanelLGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 230, Short.MAX_VALUE)
-        );
-        queuesPanelLGLayout.setVerticalGroup(
-            queuesPanelLGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(queuesPanelLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 230, 200));
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 380, 250));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 380, 380));
 
-        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assest/Background.png"))); // NOI18N
-        jPanel1.add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -30, -1, -1));
+        queuesPanelLG.setOpaque(false);
+        queuesPanelLG.setPreferredSize(new java.awt.Dimension(350, 380));
+
+        javax.swing.GroupLayout queuesPanelLGLayout = new javax.swing.GroupLayout(queuesPanelLG);
+        queuesPanelLG.setLayout(queuesPanelLGLayout);
+        queuesPanelLGLayout.setHorizontalGroup(
+            queuesPanelLGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 290, Short.MAX_VALUE)
+        );
+        queuesPanelLGLayout.setVerticalGroup(
+            queuesPanelLGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 330, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(queuesPanelLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 290, 330));
+
+        queuesPanelBG.setOpaque(false);
+        queuesPanelBG.setPreferredSize(new java.awt.Dimension(350, 380));
+
+        javax.swing.GroupLayout queuesPanelBGLayout = new javax.swing.GroupLayout(queuesPanelBG);
+        queuesPanelBG.setLayout(queuesPanelBGLayout);
+        queuesPanelBGLayout.setHorizontalGroup(
+            queuesPanelBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 290, Short.MAX_VALUE)
+        );
+        queuesPanelBGLayout.setVerticalGroup(
+            queuesPanelBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 310, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(queuesPanelBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 160, 290, 310));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1086, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
         );
 
         pack();
@@ -210,10 +215,13 @@ public final class Form extends javax.swing.JFrame {
             }
         });
     }
+    
+    public AllQueues getQueuesLG(){
+        return queuesLG;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BGPoints;
-    private javax.swing.JLabel Background;
     private javax.swing.JLabel IAState;
     private javax.swing.JLabel LGPoints;
     private javax.swing.JSlider TimeSlider;
@@ -225,6 +233,8 @@ public final class Form extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel queuesPanelBG;
     private javax.swing.JPanel queuesPanelLG;
     // End of variables declaration//GEN-END:variables
