@@ -56,10 +56,10 @@ public class Vehicle {
         this.points += assignScore(50, components[2]);
 //        rueda
         this.points += assignScore(40, components[3]);
-        if (this.points>=110){
+        if (this.points>=70){
             this.priorityLevel = 1;
             this.quality = "Excepcional";
-        }else if (this.points>30){
+        }else if (this.points>55){
             this.priorityLevel = 2;
             this.quality = "Media";
 
@@ -80,11 +80,6 @@ public class Vehicle {
         }
         return result;
     }
-    
-    public void checkLevel(){
-        if (this.counter == 8 && this.priorityLevel !=1 && this.priorityLevel != 4){
-            this.priorityLevel --;
-        }
-    }
+  
 
 }

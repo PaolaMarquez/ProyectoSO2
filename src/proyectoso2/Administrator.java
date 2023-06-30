@@ -62,17 +62,23 @@ public class Administrator extends Thread{
     
     private Vehicle getVehicleFromQueues(Queue queue1, Queue queue2, Queue queue3, String label) {
         if (!queue1.isEmpty()) {
+            Vehicle aux = queue1.dispatch();
             changeForm(queue1, label, 0);
-            return queue1.dispatch();
+            return aux;
         } else if (!queue2.isEmpty()) {
-            changeForm(queue2, label, 1);            
-            return queue2.dispatch();
+            Vehicle aux = queue2.dispatch();
+            changeForm(queue2, label, 1);  
+            return aux;
+
         } else if (!queue3.isEmpty()) {
+            Vehicle aux = queue3.dispatch();
             changeForm(queue3, label, 2);
-            return queue3.dispatch();
+            return aux;
         }
         return null;
     }
+    
+    
     
     public void sendVehiclesToQueue(Vehicle vehicleBG, Vehicle vehicleLG) {
         if (vehicleBG != null) {
@@ -99,6 +105,7 @@ public class Administrator extends Thread{
             int result = ramdom.nextInt(100);
             if (result <= 40) {
                 Vehicle vehicle = reinforcement.dispatch();
+                changeForm(reinforcement, label, 3);
                 vehicle.priorityLevel = 1;
                 this.sendVehicleToQueue(vehicle, queue1, queue2, queue3);
             } else {
@@ -206,9 +213,10 @@ public class Administrator extends Thread{
             }
             Vehicle vehicleBG = this.getVehicleFromQueues(this.queueBG1, this.queueBG2, this.queueBG3, "BG");
             Vehicle vehicleLG = this.getVehicleFromQueues(this.queueLG1, this.queueLG2, this.queueLG3, "LG");
+            sleep(10000);
 
-            ia.vehicleLG = vehicleBG;
-            ia.vehicleBG =  vehicleLG;
+            ia.vehicleBG = vehicleBG;
+            ia.vehicleLG =  vehicleLG;
 
             if (vehicleBG != null) {
                 vehicleBG.counter = 0;

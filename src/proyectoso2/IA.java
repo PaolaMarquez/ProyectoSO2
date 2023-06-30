@@ -60,11 +60,13 @@ public class IA extends Thread{
             if (this.vehicleBG == null || this.vehicleLG == null) {
                 this.admin.sendVehiclesToQueue(this.vehicleBG, this.vehicleLG);
 //                sleep(this.runTime);
-                sleep(5000);
+                sleep(10000);
             } else {
                 changeState(1);
 //                sleep(runTime); // Poner a dormir por 10 seg
-                sleep(5000);
+                System.out.println("LG: " + this.vehicleLG.id);
+                System.out.println("BG: " + this.vehicleBG.id);
+                sleep(10000);
                 chooseResults(vehicleLG.points,vehicleBG.points);
             this.mutex.release();
             sleep(1000);

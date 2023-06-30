@@ -91,13 +91,11 @@ public class Queue {
         String msg = "";
         Node pointer = getFirst();
         while (pointer != null) {
-            String info = pointer.getElement().id + pointer.getElement().plant +" ";
+            String info = pointer.getElement().id + pointer.getElement().plant + " ";
             msg += info;
-//            System.out.println(pointer.getElement());
-//            System.out.println(info);
+//          ]
             pointer = pointer.getNext();
         }
-        System.out.println(msg);
         return msg;
     }
     
