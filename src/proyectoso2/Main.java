@@ -20,6 +20,8 @@ public class Main {
     public static IA ia = new IA();
     public static Vehicle[] vehicles = new Vehicle[10];
     public static Form form = new Form();
+    public static int runTime = form.getTimeSlider().getValue()*1000;
+    
     /**
      * @param args the command line arguments
      */

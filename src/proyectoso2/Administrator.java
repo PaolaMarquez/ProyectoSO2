@@ -99,6 +99,7 @@ public class Administrator extends Thread{
             int result = ramdom.nextInt(100);
             if (result <= 40) {
                 Vehicle vehicle = reinforcement.dispatch();
+                changeForm(reinforcement, label, 3);
                 vehicle.priorityLevel = 1;
                 this.sendVehicleToQueue(vehicle, queue1, queue2, queue3);
             } else {
@@ -207,8 +208,8 @@ public class Administrator extends Thread{
             Vehicle vehicleBG = this.getVehicleFromQueues(this.queueBG1, this.queueBG2, this.queueBG3, "BG");
             Vehicle vehicleLG = this.getVehicleFromQueues(this.queueLG1, this.queueLG2, this.queueLG3, "LG");
 
-            ia.vehicleLG = vehicleBG;
-            ia.vehicleBG =  vehicleLG;
+            ia.vehicleLG = vehicleLG;
+            ia.vehicleBG =  vehicleBG;
 
             if (vehicleBG != null) {
                 vehicleBG.counter = 0;
@@ -218,7 +219,7 @@ public class Administrator extends Thread{
             }
 
             this.mutex.release();
-            sleep(500);
+            sleep(Main.runTime/2);
             this.mutex.acquire();
 
             // Despues de la ronda de la inteligencia artificial se aumenta y se chequea

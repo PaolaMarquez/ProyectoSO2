@@ -22,6 +22,7 @@ public class Vehicle {
     public int priorityLevel;
     public String plant;
     public String quality;
+    public String imageUrl;
 
     public Vehicle(int id, String plant) {
         this.id = id;
@@ -34,15 +35,17 @@ public class Vehicle {
         createComponents();
         checkQuality();
     }
-    
+       
     public void createComponents(){
         int num = random.nextInt(14);
         if (this.plant.equals("LG")){
             this.components = Values.partsLG;
             this.name = Values.LGVehicleName[num];
+            this.imageUrl =  "/assets/LG" + String.valueOf(num+1) + ".jpg";
         }else{
             this.components = Values.partsBG;
             this.name = Values.BGVehicleName[num];
+            this.imageUrl =  "/assets/BG" + String.valueOf(num+1) + ".jpg";
         }
     }
             
@@ -55,17 +58,15 @@ public class Vehicle {
         this.points += assignScore(50, components[2]);
 //        rueda
         this.points += assignScore(40, components[3]);
-        if (this.points>=110){
+        if (this.points>=80){
             this.priorityLevel = 1;
             this.quality = "Excepcional";
-        }else if (this.points>30){
+        }else if (this.points>45){
             this.priorityLevel = 2;
             this.quality = "Media";
-
         }else{
             this.priorityLevel =3;
             this.quality = "Baja";
-
         }
     }
     
