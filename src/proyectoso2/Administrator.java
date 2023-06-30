@@ -215,8 +215,10 @@ public class Administrator extends Thread{
             Vehicle vehicleLG = this.getVehicleFromQueues(this.queueLG1, this.queueLG2, this.queueLG3, "LG");
             sleep(10000);
 
-            ia.vehicleBG = vehicleBG;
-            ia.vehicleLG =  vehicleLG;
+
+            ia.vehicleLG = vehicleLG;
+            ia.vehicleBG =  vehicleBG;
+
 
             if (vehicleBG != null) {
                 vehicleBG.counter = 0;
@@ -226,7 +228,7 @@ public class Administrator extends Thread{
             }
 
             this.mutex.release();
-            sleep(500);
+            sleep(Main.runTime/2);
             this.mutex.acquire();
 
             // Despues de la ronda de la inteligencia artificial se aumenta y se chequea

@@ -31,7 +31,7 @@ public class Vehicle {
         this.points = 0;
         this.priorityLevel = 0;
         this.plant = plant;
-
+            
         createComponents();
         checkQuality();
     }

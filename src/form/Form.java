@@ -8,7 +8,8 @@ package form;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.JSlider;
+import proyectoso2.Main;
 
 
 /**
@@ -24,11 +25,12 @@ public final class Form extends javax.swing.JFrame {
      */
     public Form() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
         this.queuesLG = new AllQueues();
         this.queuesBG = new AllQueues();
         createQueues(queuesPanelLG, queuesLG);
         createQueues(queuesPanelBG, queuesBG);
-        
     }
     
     public void createQueues(JPanel panel, AllQueues pq){
@@ -38,6 +40,32 @@ public final class Form extends javax.swing.JFrame {
         panel.add(pq, BorderLayout.CENTER);
         panel.revalidate();
         panel.repaint();
+    }
+    
+    public void putInfo(){
+        info1.setText("Name:");
+        info2.setText("ID:");
+        info3.setText("Points:");
+        info4.setText("Name:");
+        info5.setText("ID:");
+        info6.setText("Points:");
+        flag.setIcon(null);
+    }
+    
+    public void clearInfo(){
+        info1.setText("");
+        info2.setText("");
+        info3.setText("");
+        info4.setText("");
+        info5.setText("");
+        info6.setText("");
+        flag.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/flag.png")));
+    }
+    
+    public void changeIcon(String pathLG, String pathBG){
+       imageLG.setIcon(new javax.swing.ImageIcon(getClass().getResource(pathLG)));
+       imageLG.setIcon(new javax.swing.ImageIcon(getClass().getResource(pathBG)));
+//       imageLG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/LG1.jpg")));
     }
         
     /**
@@ -53,18 +81,29 @@ public final class Form extends javax.swing.JFrame {
         LGWins = new javax.swing.JLabel();
         BGWins = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        results = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         TimeSlider = new javax.swing.JSlider();
         IAState = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         queuesPanelLG = new javax.swing.JPanel();
         queuesPanelBG = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        imageLG = new javax.swing.JLabel();
+        imageBG = new javax.swing.JLabel();
+        info3 = new javax.swing.JLabel();
+        info1 = new javax.swing.JLabel();
+        info2 = new javax.swing.JLabel();
+        nameLG = new javax.swing.JLabel();
+        qualityLG = new javax.swing.JLabel();
+        idLG1 = new javax.swing.JLabel();
+        flag = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        info4 = new javax.swing.JLabel();
+        info5 = new javax.swing.JLabel();
+        info6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,15 +122,15 @@ public final class Form extends javax.swing.JFrame {
         jLabel1.setText("Bugatti");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 90, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setText("Lamborghini");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
+        results.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jPanel1.add(results, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("VS");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, -1, -1));
 
         TimeSlider.setMaximum(30);
+        TimeSlider.setValue(10);
         TimeSlider.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 TimeSliderStateChanged(evt);
@@ -107,28 +146,11 @@ public final class Form extends javax.swing.JFrame {
         jLabel5.setText("The IA is ");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, -1, -1));
 
-        jLabel4.setText("0");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 590, 30, -1));
+        jLabel4.setText("10");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 590, 30, -1));
 
         jLabel6.setText("30");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 590, 20, -1));
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 380, 380));
 
         queuesPanelLG.setOpaque(false);
         queuesPanelLG.setPreferredSize(new java.awt.Dimension(350, 380));
@@ -157,10 +179,29 @@ public final class Form extends javax.swing.JFrame {
         );
         queuesPanelBGLayout.setVerticalGroup(
             queuesPanelBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 310, Short.MAX_VALUE)
+            .addGap(0, 330, Short.MAX_VALUE)
         );
 
-        jPanel1.add(queuesPanelBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 160, 290, 310));
+        jPanel1.add(queuesPanelBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 160, 290, 330));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel7.setText("Lamborghini");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
+        jPanel1.add(imageLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 210, 120));
+        jPanel1.add(imageBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 190, 120));
+        jPanel1.add(info3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, -1, -1));
+        jPanel1.add(info1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, -1, -1));
+        jPanel1.add(info2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, -1, -1));
+        jPanel1.add(nameLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, -1, -1));
+        jPanel1.add(qualityLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 280, -1, -1));
+        jPanel1.add(idLG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, -1, -1));
+        jPanel1.add(flag, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, -1, -1));
+
+        jLabel8.setText("0");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 590, 30, -1));
+        jPanel1.add(info4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 70, 60));
+        jPanel1.add(info5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 70, 60));
+        jPanel1.add(info6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 70, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,7 +219,8 @@ public final class Form extends javax.swing.JFrame {
 
     private void TimeSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_TimeSliderStateChanged
         // TODO add your handling code here:
-        IAState.setText(String.valueOf(TimeSlider.getValue()));
+        Main.runTime = TimeSlider.getValue()*1000;
+//        IAState.setText(String.valueOf(TimeSlider.getValue()));
     }//GEN-LAST:event_TimeSliderStateChanged
     
      
@@ -213,6 +255,7 @@ public final class Form extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Form().setVisible(true);
+                 
             }
         });
     }
@@ -240,6 +283,33 @@ public final class Form extends javax.swing.JFrame {
     public JLabel getLGWins() {
         return LGWins;
     }
+
+    public JLabel getResults() {
+        return results;
+    }
+
+    public JLabel getIdLG1() {
+        return idLG1;
+    }
+
+    public JLabel getNameLG() {
+        return nameLG;
+    }
+
+    public JLabel getQualityLG() {
+        return qualityLG;
+    }
+
+    public JLabel getImageLG() {
+        return imageLG;
+    }
+
+    public JSlider getTimeSlider() {
+        return TimeSlider;
+    }
+    
+    
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -247,17 +317,28 @@ public final class Form extends javax.swing.JFrame {
     private javax.swing.JLabel IAState;
     private javax.swing.JLabel LGWins;
     private javax.swing.JSlider TimeSlider;
+    private javax.swing.JLabel flag;
+    private javax.swing.JLabel idLG1;
+    private javax.swing.JLabel imageBG;
+    private javax.swing.JLabel imageLG;
+    private javax.swing.JLabel info1;
+    private javax.swing.JLabel info2;
+    private javax.swing.JLabel info3;
+    private javax.swing.JLabel info4;
+    private javax.swing.JLabel info5;
+    private javax.swing.JLabel info6;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel nameLG;
+    private javax.swing.JLabel qualityLG;
     private javax.swing.JPanel queuesPanelBG;
     private javax.swing.JPanel queuesPanelLG;
+    private javax.swing.JLabel results;
     // End of variables declaration//GEN-END:variables
 }
