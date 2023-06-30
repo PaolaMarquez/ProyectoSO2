@@ -64,7 +64,7 @@ public final class Form extends javax.swing.JFrame {
     
     public void changeIcon(String pathLG, String pathBG){
        imageLG.setIcon(new javax.swing.ImageIcon(getClass().getResource(pathLG)));
-       imageLG.setIcon(new javax.swing.ImageIcon(getClass().getResource(pathBG)));
+       imageBG.setIcon(new javax.swing.ImageIcon(getClass().getResource(pathBG)));
 //       imageLG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/LG1.jpg")));
     }
         
@@ -104,6 +104,9 @@ public final class Form extends javax.swing.JFrame {
         info4 = new javax.swing.JLabel();
         info5 = new javax.swing.JLabel();
         info6 = new javax.swing.JLabel();
+        idBG1 = new javax.swing.JLabel();
+        nameBG = new javax.swing.JLabel();
+        qualityBG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -130,6 +133,7 @@ public final class Form extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, -1, -1));
 
         TimeSlider.setMaximum(30);
+        TimeSlider.setMinimum(1);
         TimeSlider.setValue(10);
         TimeSlider.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -188,7 +192,7 @@ public final class Form extends javax.swing.JFrame {
         jLabel7.setText("Lamborghini");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
         jPanel1.add(imageLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 210, 120));
-        jPanel1.add(imageBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 190, 120));
+        jPanel1.add(imageBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 210, 120));
         jPanel1.add(info3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, -1, -1));
         jPanel1.add(info1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, -1, -1));
         jPanel1.add(info2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, -1, -1));
@@ -197,11 +201,14 @@ public final class Form extends javax.swing.JFrame {
         jPanel1.add(idLG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, -1, -1));
         jPanel1.add(flag, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, -1, -1));
 
-        jLabel8.setText("0");
+        jLabel8.setText("1");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 590, 30, -1));
-        jPanel1.add(info4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 70, 60));
-        jPanel1.add(info5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 70, 60));
-        jPanel1.add(info6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 70, 60));
+        jPanel1.add(info4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, 70, 20));
+        jPanel1.add(info5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, 70, 20));
+        jPanel1.add(info6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 430, 70, 20));
+        jPanel1.add(idBG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 80, 20));
+        jPanel1.add(nameBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 80, 20));
+        jPanel1.add(qualityBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 460, 80, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -307,9 +314,22 @@ public final class Form extends javax.swing.JFrame {
     public JSlider getTimeSlider() {
         return TimeSlider;
     }
-    
-    
-    
+
+    public JLabel getIdBG1() {
+        return idBG1;
+    }
+
+    public JLabel getImageBG() {
+        return imageBG;
+    }
+
+    public JLabel getNameBG() {
+        return nameBG;
+    }
+
+    public JLabel getQualityBG() {
+        return qualityBG;
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -318,6 +338,7 @@ public final class Form extends javax.swing.JFrame {
     private javax.swing.JLabel LGWins;
     private javax.swing.JSlider TimeSlider;
     private javax.swing.JLabel flag;
+    private javax.swing.JLabel idBG1;
     private javax.swing.JLabel idLG1;
     private javax.swing.JLabel imageBG;
     private javax.swing.JLabel imageLG;
@@ -335,7 +356,9 @@ public final class Form extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel nameBG;
     private javax.swing.JLabel nameLG;
+    private javax.swing.JLabel qualityBG;
     private javax.swing.JLabel qualityLG;
     private javax.swing.JPanel queuesPanelBG;
     private javax.swing.JPanel queuesPanelLG;

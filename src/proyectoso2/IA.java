@@ -48,6 +48,9 @@ public class IA extends Thread{
         Main.form.getNameLG().setText(String.valueOf(this.vehicleLG.name));
         Main.form.getQualityLG().setText(String.valueOf(this.vehicleLG.points));
         Main.form.changeIcon(this.vehicleLG.imageUrl, this.vehicleBG.imageUrl);
+        Main.form.getIdBG1().setText(String.valueOf(this.vehicleBG.id));
+        Main.form.getNameBG().setText(String.valueOf(this.vehicleBG.name));
+        Main.form.getQualityBG().setText(String.valueOf(this.vehicleBG.points));
         Main.form.putInfo();
     }
     
@@ -56,6 +59,10 @@ public class IA extends Thread{
         Main.form.getIdLG1().setText(String.valueOf(""));
         Main.form.getNameLG().setText(String.valueOf(""));
         Main.form.getQualityLG().setText(String.valueOf(""));
+        Main.form.getIdBG1().setText(String.valueOf(""));
+        Main.form.getNameBG().setText(String.valueOf(""));
+        Main.form.getQualityBG().setText(String.valueOf(""));
+        Main.form.getImageBG().setIcon(null);
         Main.form.getImageLG().setIcon(null);
         Main.form.clearInfo();
         
@@ -92,9 +99,9 @@ public class IA extends Thread{
                     sleep(Main.runTime/2);
                 } else {
                     changeState(1);
-                    sleep(Main.runTime/2); // Poner a dormir por 10 seg
+                    sleep(Main.runTime); // Poner a dormir por 10 seg
                     chooseResults(vehicleLG.points,vehicleBG.points);
-                    sleep(Main.runTime/2); // Poner a dormir por 10 seg
+                    sleep(Main.runTime); // Poner a dormir por 10 seg
                     cleanCar();
                     
                 this.mutex.release();
@@ -115,13 +122,13 @@ public class IA extends Thread{
                 this.thisWinner = this.vehicleLG;
                 this.winners[this.winsLG+this.winsBG] = this.thisWinner;
                 this.winsLG++;
-                Main.form.getLGWins().setText(String.valueOf(this.winsLG++));
+                Main.form.getLGWins().setText(String.valueOf(this.winsLG));
                 System.out.println("Lamborghini ganó");
             }else{
                 this.thisWinner = this.vehicleLG;
                 this.winners[this.winsLG+this.winsBG] = this.thisWinner;
                 this.winsBG++;
-                Main.form.getBGWins().setText(String.valueOf(this.winsBG++));
+                Main.form.getBGWins().setText(String.valueOf(this.winsBG));
                 System.out.println("Bugatti ganó");
             }
             changeResults(0);

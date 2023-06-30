@@ -18,13 +18,12 @@ public class Values {
     public static String[] results = {" won!", "It's a tie", "Suspended race", "A brief intermission...", "We're about to begin"};
     
     public static String[] LGVehicleName = new String[] {
-        "Silhouette", "Aventador","Huracán",
+        "Aventador","Silhouette","Huracán",
         "Diablo", "Countach", "Miura",
     };
     
     public static String[] BGVehicleName = new String[] {
-        "Chiron","Veyron", "Divo", "Centodieci", 
-        "EB110", "Type 55"
+        "Chiron","Veyron", "Divo", "Centodieci","EB110", "Type 55"
     };
        
 }

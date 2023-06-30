@@ -37,7 +37,7 @@ public class Vehicle {
     }
        
     public void createComponents(){
-        int num = random.nextInt(14);
+        int num = random.nextInt(5);
         if (this.plant.equals("LG")){
             this.components = Values.partsLG;
             this.name = Values.LGVehicleName[num];
