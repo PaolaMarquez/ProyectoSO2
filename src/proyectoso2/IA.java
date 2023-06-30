@@ -26,8 +26,8 @@ public class IA extends Thread{
     public Vehicle vehicleBG;
     public Vehicle vehicleLG;
     public int runTime;
-    public int pointsLG;
-    public int pointsBG;
+    public int winsLG;
+    public int winsBG;
 
     public IA() {
         this.state = Values.statusIA[0];
@@ -35,8 +35,8 @@ public class IA extends Thread{
         this.mutex = Main.mutex;
         this.admin = Main.admin;
         this.random = new Random();
-        this.pointsLG = 0;
-        this.pointsBG = 0;
+        this.winsLG = 0;
+        this.winsBG = 0;
     }
     
     public void changeState(int i){
@@ -81,12 +81,14 @@ public class IA extends Thread{
         if (result <= Values.resultProb[0]){
 //        Existe un ganador
             if (pointsLG >= pointsBG){
-                this.winners[this.pointsLG + this.pointsBG] = this.vehicleLG;
-                this.pointsLG++;
+                this.winners[this.winsLG + this.winsBG] = this.vehicleLG;
+                this.winsLG++;
+                Main.form.getLGWins().setText(String.valueOf(this.winsLG++));
                 System.out.println("Lamborghini ganó");
             }else{
-                this.winners[this.pointsLG + this.pointsBG] = this.vehicleBG;
-                this.pointsBG++;
+                this.winners[this.winsLG + this.winsBG] = this.vehicleBG;
+                this.winsBG++;
+                Main.form.getBGWins().setText(String.valueOf(this.winsBG++));
                 System.out.println("Bugatti ganó");
             }
         }else if (result <= Values.resultProb[1] + Values.resultProb[0]){
