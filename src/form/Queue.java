@@ -31,8 +31,8 @@ public class Queue extends javax.swing.JPanel {
 
         showQueue = new javax.swing.JTextField();
 
-        setOpaque(false);
         setPreferredSize(new java.awt.Dimension(270, 60));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         showQueue.setEditable(false);
         showQueue.setEnabled(false);
@@ -42,23 +42,7 @@ public class Queue extends javax.swing.JPanel {
                 showQueueActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(showQueue, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(showQueue, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        add(showQueue, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 250, 38));
     }// </editor-fold>//GEN-END:initComponents
 
     private void showQueueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showQueueActionPerformed

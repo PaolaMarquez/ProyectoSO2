@@ -34,7 +34,7 @@ public final class Form extends javax.swing.JFrame {
     }
     
     public void createQueues(JPanel panel, AllQueues pq){
-        pq.setSize(350, 380);
+        pq.setSize(290, 330);
         pq.setLocation(0, 0);
         panel.removeAll();
         panel.add(pq, BorderLayout.CENTER);
@@ -101,15 +101,17 @@ public final class Form extends javax.swing.JFrame {
         idLG1 = new javax.swing.JLabel();
         flag = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        info6 = new javax.swing.JLabel();
         info4 = new javax.swing.JLabel();
         info5 = new javax.swing.JLabel();
-        info6 = new javax.swing.JLabel();
         idBG1 = new javax.swing.JLabel();
         nameBG = new javax.swing.JLabel();
         qualityBG = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(899, 504));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -130,7 +132,7 @@ public final class Form extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("VS");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, -1, -1));
 
         TimeSlider.setMaximum(30);
         TimeSlider.setMinimum(1);
@@ -144,11 +146,11 @@ public final class Form extends javax.swing.JFrame {
 
         IAState.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         IAState.setText("Working");
-        jPanel1.add(IAState, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, -1, -1));
+        jPanel1.add(IAState, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("The IA is ");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
 
         jLabel4.setText("10");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 590, 30, -1));
@@ -157,7 +159,7 @@ public final class Form extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 590, 20, -1));
 
         queuesPanelLG.setOpaque(false);
-        queuesPanelLG.setPreferredSize(new java.awt.Dimension(350, 380));
+        queuesPanelLG.setPreferredSize(new java.awt.Dimension(290, 330));
 
         javax.swing.GroupLayout queuesPanelLGLayout = new javax.swing.GroupLayout(queuesPanelLG);
         queuesPanelLG.setLayout(queuesPanelLGLayout);
@@ -172,6 +174,7 @@ public final class Form extends javax.swing.JFrame {
 
         jPanel1.add(queuesPanelLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 290, 330));
 
+        queuesPanelBG.setBackground(new java.awt.Color(255, 51, 51));
         queuesPanelBG.setOpaque(false);
         queuesPanelBG.setPreferredSize(new java.awt.Dimension(350, 380));
 
@@ -186,29 +189,32 @@ public final class Form extends javax.swing.JFrame {
             .addGap(0, 330, Short.MAX_VALUE)
         );
 
-        jPanel1.add(queuesPanelBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 160, 290, 330));
+        jPanel1.add(queuesPanelBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 160, 290, 330));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel7.setText("Lamborghini");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
         jPanel1.add(imageLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 210, 120));
-        jPanel1.add(imageBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 210, 120));
+        jPanel1.add(imageBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 370, 210, 120));
         jPanel1.add(info3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, -1, -1));
         jPanel1.add(info1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, -1, -1));
         jPanel1.add(info2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, -1, -1));
         jPanel1.add(nameLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, -1, -1));
         jPanel1.add(qualityLG, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 280, -1, -1));
         jPanel1.add(idLG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, -1, -1));
-        jPanel1.add(flag, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, -1, -1));
+        jPanel1.add(flag, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, -1, -1));
 
         jLabel8.setText("1");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 590, 30, -1));
-        jPanel1.add(info4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, 70, 20));
-        jPanel1.add(info5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, 70, 20));
-        jPanel1.add(info6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 430, 70, 20));
-        jPanel1.add(idBG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 80, 20));
-        jPanel1.add(nameBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 80, 20));
-        jPanel1.add(qualityBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 460, 80, 20));
+        jPanel1.add(info6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, 70, 20));
+        jPanel1.add(info4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, 70, 20));
+        jPanel1.add(info5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, 70, 20));
+        jPanel1.add(idBG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 430, 80, 20));
+        jPanel1.add(nameBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, 80, 20));
+        jPanel1.add(qualityBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, 80, 20));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/rsz_3extras.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -349,6 +355,7 @@ public final class Form extends javax.swing.JFrame {
     private javax.swing.JLabel info5;
     private javax.swing.JLabel info6;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

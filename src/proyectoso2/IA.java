@@ -43,15 +43,29 @@ public class IA extends Thread{
         Main.form.getIAState().setText(this.state);
     }
     
-    public void showCar(){
+    public void showCar(int i){
         Main.form.getIdLG1().setText(String.valueOf(this.vehicleLG.id));
         Main.form.getNameLG().setText(String.valueOf(this.vehicleLG.name));
-        Main.form.getQualityLG().setText(String.valueOf(this.vehicleLG.points));
         Main.form.changeIcon(this.vehicleLG.imageUrl, this.vehicleBG.imageUrl);
         Main.form.getIdBG1().setText(String.valueOf(this.vehicleBG.id));
         Main.form.getNameBG().setText(String.valueOf(this.vehicleBG.name));
-        Main.form.getQualityBG().setText(String.valueOf(this.vehicleBG.points));
         Main.form.putInfo();
+        switch (i) {
+            case 0:
+                Main.form.getQualityLG().setText(String.valueOf(this.vehicleLG.points));
+                Main.form.getQualityBG().setText(String.valueOf(this.vehicleBG.points));
+                break;
+            case 1:
+                Main.form.getQualityLG().setText(String.valueOf(this.vehicleLG.points));
+                Main.form.getQualityBG().setText(String.valueOf(this.vehicleLG.points));
+                break;
+            case 2:
+                Main.form.getQualityLG().setText("0");
+                Main.form.getQualityBG().setText("0");
+                break;
+            default:
+                break;
+        }
     }
     
     public void cleanCar(){
@@ -69,12 +83,12 @@ public class IA extends Thread{
     }
     
     public void changeResults(int i){
-        if (i == 0){
-            if (this.thisWinner.plant.equals("LG")){
-                Main.form.getResults().setText("Lamborghini" + Values.results[i]);
+        if (i==0){
+            if (vehicleLG.points >= vehicleBG.points){
+                Main.form.getResults().setText("Lamborghini" + Values.results[0]);
             }else{
-                Main.form.getResults().setText("Bugatti" + Values.results[i]);
-            }
+                Main.form.getResults().setText("Bugatti" + Values.results[0]);
+        }
         }else{
             Main.form.getResults().setText(Values.results[i]);
         }
@@ -132,15 +146,18 @@ public class IA extends Thread{
                 System.out.println("Bugatti ganó");
             }
             changeResults(0);
+            showCar(0);
         }else if (result <= Values.resultProb[1] + Values.resultProb[0]){
 //        Ocurre un empate
             this.admin.sendVehiclesToQueue(vehicleBG, vehicleLG);
             changeResults(1);
+            showCar(1);
         }else {
 //        No se lleva a cabo la carrera
             this.admin.sendVehicleToReinforcementQueue(this.vehicleBG, this.vehicleLG);
             changeResults(2);
+            showCar(2);
         }
-        showCar();
+        
     }
 }

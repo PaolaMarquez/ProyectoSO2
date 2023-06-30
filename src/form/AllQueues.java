@@ -82,10 +82,19 @@ public final class AllQueues extends javax.swing.JPanel {
         Level3 = new javax.swing.JPanel();
         Level1 = new javax.swing.JPanel();
         Level2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 51, 51));
         jPanel1.setOpaque(false);
-        jPanel1.setPreferredSize(new java.awt.Dimension(350, 380));
+        jPanel1.setPreferredSize(new java.awt.Dimension(290, 330));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        LevelR.setOpaque(false);
 
         javax.swing.GroupLayout LevelRLayout = new javax.swing.GroupLayout(LevelR);
         LevelR.setLayout(LevelRLayout);
@@ -100,6 +109,8 @@ public final class AllQueues extends javax.swing.JPanel {
 
         jPanel1.add(LevelR, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 270, 60));
 
+        Level3.setOpaque(false);
+
         javax.swing.GroupLayout Level3Layout = new javax.swing.GroupLayout(Level3);
         Level3.setLayout(Level3Layout);
         Level3Layout.setHorizontalGroup(
@@ -113,6 +124,7 @@ public final class AllQueues extends javax.swing.JPanel {
 
         jPanel1.add(Level3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 270, 60));
 
+        Level1.setOpaque(false);
         Level1.setPreferredSize(new java.awt.Dimension(270, 60));
 
         javax.swing.GroupLayout Level1Layout = new javax.swing.GroupLayout(Level1);
@@ -128,6 +140,8 @@ public final class AllQueues extends javax.swing.JPanel {
 
         jPanel1.add(Level1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 270, 60));
 
+        Level2.setOpaque(false);
+
         javax.swing.GroupLayout Level2Layout = new javax.swing.GroupLayout(Level2);
         Level2.setLayout(Level2Layout);
         Level2Layout.setHorizontalGroup(
@@ -141,20 +155,19 @@ public final class AllQueues extends javax.swing.JPanel {
 
         jPanel1.add(Level2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        jLabel1.setText("R");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, -1, -1));
+
+        jLabel2.setText("N1");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+
+        jLabel3.setText("N2");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, -1, -1));
+
+        jLabel4.setText("N3");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, -1, -1));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
   
     
@@ -163,6 +176,10 @@ public final class AllQueues extends javax.swing.JPanel {
     private javax.swing.JPanel Level2;
     private javax.swing.JPanel Level3;
     private javax.swing.JPanel LevelR;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
