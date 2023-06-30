@@ -113,6 +113,7 @@ public final class Form extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(899, 504));
+        jPanel1.setOpaque(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LGWins.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -158,6 +159,7 @@ public final class Form extends javax.swing.JFrame {
         jLabel6.setText("30");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 590, 20, -1));
 
+        queuesPanelLG.setBackground(new java.awt.Color(255, 0, 204));
         queuesPanelLG.setOpaque(false);
         queuesPanelLG.setPreferredSize(new java.awt.Dimension(290, 330));
 

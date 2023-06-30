@@ -31,11 +31,13 @@ public class Queue extends javax.swing.JPanel {
 
         showQueue = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(270, 60));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         showQueue.setEditable(false);
-        showQueue.setEnabled(false);
+        showQueue.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        showQueue.setOpaque(false);
         showQueue.setPreferredSize(new java.awt.Dimension(270, 60));
         showQueue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
